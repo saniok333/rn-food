@@ -12,14 +12,13 @@ export const SearchScreen = () => {
     results.filter((result) => result.price === price);
 
   return (
-    <View style={styles.containerStyle}>
+    <>
       <SearchBar
         onTermChange={setTerm}
         term={term}
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text>We have found {results.length} results</Text>
       <ScrollView>
         <ResultsList
           title="Cost Effective"
@@ -31,8 +30,8 @@ export const SearchScreen = () => {
           results={filterResultsByPrice('$$$')}
         />
       </ScrollView>
-    </View>
+    </>
   );
 };
 
-const styles = StyleSheet.create({ containerStyle: { flex: 1 } });
+const styles = StyleSheet.create({});
